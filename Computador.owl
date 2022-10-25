@@ -1,882 +1,882 @@
-@prefix : <http://www.computador.org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.computador.org> .
+@prefix computador: <http://www.computador.org#> .
+@base <http://www.computador.org/> .
 
-<http://www.computador.org> rdf:type owl:Ontology ;
-                             owl:imports <http://sensormeasurement.appspot.com/ont/home/homeActivity#> .
+<http://www.computador.org/> rdf:type owl:Ontology ;
+                              owl:imports <http://sensormeasurement.appspot.com/ont/home/homeActivity#> .
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://www.computador.org#es_Componente_De
-:es_Componente_De rdf:type owl:ObjectProperty ;
-                  owl:inverseOf :tiene_Componente ;
-                  rdfs:comment "El componente es parte de otra parte"^^xsd:string ;
-                  rdfs:label "es_Componente_De"^^xsd:string .
+###  http://www.computador.org/#es_Componente_De
+<http://www.computador.org/#es_Componente_De> rdf:type owl:ObjectProperty ;
+                                              owl:inverseOf <http://www.computador.org/#tiene_Componente> ;
+                                              rdfs:comment "El componente es parte de otra parte"^^xsd:string ;
+                                              rdfs:label "es_Componente_De"^^xsd:string .
 
 
-###  http://www.computador.org#es_Gabinete_De
-:es_Gabinete_De rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf :es_Componente_De ;
-                rdfs:comment "El gabinete es de otra parte"^^xsd:string ;
-                rdfs:label "es_Gabinete_De"^^xsd:string .
+###  http://www.computador.org/#es_Gabinete_De
+<http://www.computador.org/#es_Gabinete_De> rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf <http://www.computador.org/#es_Componente_De> ;
+                                            rdfs:comment "El gabinete es de otra parte"^^xsd:string ;
+                                            rdfs:label "es_Gabinete_De"^^xsd:string .
 
 
-###  http://www.computador.org#es_Parte_De
-:es_Parte_De rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf :es_Componente_De ;
-             rdfs:comment "Es de parte"^^xsd:string ;
-             rdfs:label "es_Parte_De"^^xsd:string .
+###  http://www.computador.org/#es_Parte_De
+<http://www.computador.org/#es_Parte_De> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <http://www.computador.org/#es_Componente_De> ;
+                                         rdfs:comment "Es de parte"^^xsd:string ;
+                                         rdfs:label "es_Parte_De"^^xsd:string .
 
 
-###  http://www.computador.org#tiene_Ancestro
-:tiene_Ancestro rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf :tiene_Coincidencia ;
-                rdf:type owl:TransitiveProperty ;
-                rdfs:comment "Existe un computador anterior a él"^^xsd:string ;
-                rdfs:label "tiene_Ancestro"^^xsd:string .
+###  http://www.computador.org/#tiene_Ancestro
+<http://www.computador.org/#tiene_Ancestro> rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf <http://www.computador.org/#tiene_Coincidencia> ;
+                                            rdf:type owl:TransitiveProperty ;
+                                            rdfs:comment "Existe un computador anterior a él"^^xsd:string ;
+                                            rdfs:label "tiene_Ancestro"^^xsd:string .
 
 
-###  http://www.computador.org#tiene_Coincidencia
-:tiene_Coincidencia rdf:type owl:ObjectProperty ,
-                             owl:SymmetricProperty ;
-                    rdfs:comment "Tiene alguna relación"^^xsd:string ;
-                    rdfs:label "tiene_Coincidencia"^^xsd:string .
+###  http://www.computador.org/#tiene_Coincidencia
+<http://www.computador.org/#tiene_Coincidencia> rdf:type owl:ObjectProperty ,
+                                                         owl:SymmetricProperty ;
+                                                rdfs:comment "Tiene alguna relación"^^xsd:string ;
+                                                rdfs:label "tiene_Coincidencia"^^xsd:string .
 
 
-###  http://www.computador.org#tiene_Componente
-:tiene_Componente rdf:type owl:ObjectProperty ;
-                  rdfs:comment "Un objeto tiene un componente"^^xsd:string ;
-                  rdfs:label "tiene_Componente"^^xsd:string .
+###  http://www.computador.org/#tiene_Componente
+<http://www.computador.org/#tiene_Componente> rdf:type owl:ObjectProperty ;
+                                              rdfs:comment "Un objeto tiene un componente"^^xsd:string ;
+                                              rdfs:label "tiene_Componente"^^xsd:string .
 
 
-###  http://www.computador.org#tiene_Gabinete
-:tiene_Gabinete rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf :tiene_Componente ;
-                rdf:type owl:FunctionalProperty ;
-                rdfs:domain :Computador ;
-                rdfs:range :Gabinete ;
-                rdfs:comment "Un objeto tiene gabinete"^^xsd:string ;
-                rdfs:label "tiene_Gabinete"^^xsd:string .
+###  http://www.computador.org/#tiene_Gabinete
+<http://www.computador.org/#tiene_Gabinete> rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf <http://www.computador.org/#tiene_Componente> ;
+                                            rdf:type owl:FunctionalProperty ;
+                                            rdfs:domain <http://www.computador.org/#Computador> ;
+                                            rdfs:range <http://www.computador.org/#Gabinete> ;
+                                            rdfs:comment "Un objeto tiene gabinete"^^xsd:string ;
+                                            rdfs:label "tiene_Gabinete"^^xsd:string .
 
 
-###  http://www.computador.org#tiene_Generacion
-:tiene_Generacion rdf:type owl:ObjectProperty ;
-                  rdfs:comment "Tiene un computador anterior, pero será usado para ver si tiene un computador posterior a él o un computador en segunda generación o tercera generación"^^xsd:string ;
-                  rdfs:label "tiene_Generacion"^^xsd:string .
+###  http://www.computador.org/#tiene_Generacion
+<http://www.computador.org/#tiene_Generacion> rdf:type owl:ObjectProperty ;
+                                              rdfs:comment "Tiene un computador anterior, pero será usado para ver si tiene un computador posterior a él o un computador en segunda generación o tercera generación"^^xsd:string ;
+                                              rdfs:label "tiene_Generacion"^^xsd:string .
 
 
-###  http://www.computador.org#tiene_Hijo_Generacion
-:tiene_Hijo_Generacion rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf :tiene_Generacion ;
-                       rdf:type owl:InverseFunctionalProperty ;
-                       rdfs:comment "Existe un computador posterior a él"^^xsd:string ;
-                       rdfs:label "tiene_Hijo_Generacion"^^xsd:string .
+###  http://www.computador.org/#tiene_Hijo_Generacion
+<http://www.computador.org/#tiene_Hijo_Generacion> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf <http://www.computador.org/#tiene_Generacion> ;
+                                                   rdf:type owl:InverseFunctionalProperty ;
+                                                   rdfs:comment "Existe un computador posterior a él"^^xsd:string ;
+                                                   rdfs:label "tiene_Hijo_Generacion"^^xsd:string .
 
 
-###  http://www.computador.org#tiene_Parte
-:tiene_Parte rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf :tiene_Componente ;
-             rdfs:domain :Computador ;
-             rdfs:range :Parte_Computador ;
-             rdfs:comment "Un objeto tiene parte"^^xsd:string ;
-             rdfs:label "tiene_Parte"^^xsd:string .
+###  http://www.computador.org/#tiene_Parte
+<http://www.computador.org/#tiene_Parte> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <http://www.computador.org/#tiene_Componente> ;
+                                         rdfs:domain <http://www.computador.org/#Computador> ;
+                                         rdfs:range <http://www.computador.org/#Parte_Computador> ;
+                                         rdfs:comment "Un objeto tiene parte"^^xsd:string ;
+                                         rdfs:label "tiene_Parte"^^xsd:string .
 
 
-###  http://www.computador.org#tiene_Segunda_Generacion
-:tiene_Segunda_Generacion rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf :tiene_Generacion ;
-                          owl:propertyChainAxiom ( :tiene_Ancestro
-                                                   :tiene_Ancestro
-                                                 ) ;
-                          rdfs:comment "Tiene un computador anterior a su primera línea anterior"^^xsd:string ;
-                          rdfs:label "tiene_Segunda_Generacion"^^xsd:string .
+###  http://www.computador.org/#tiene_Segunda_Generacion
+<http://www.computador.org/#tiene_Segunda_Generacion> rdf:type owl:ObjectProperty ;
+                                                      rdfs:subPropertyOf <http://www.computador.org/#tiene_Generacion> ;
+                                                      owl:propertyChainAxiom ( <http://www.computador.org/#tiene_Ancestro>
+                                                                               <http://www.computador.org/#tiene_Ancestro>
+                                                                             ) ;
+                                                      rdfs:comment "Tiene un computador anterior a su primera línea anterior"^^xsd:string ;
+                                                      rdfs:label "tiene_Segunda_Generacion"^^xsd:string .
 
 
-###  http://www.computador.org#tiene_Tercera_Generacion
-:tiene_Tercera_Generacion rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf :tiene_Generacion ;
-                          owl:propertyChainAxiom ( :tiene_Segunda_Generacion
-                                                   :tiene_Ancestro
-                                                 ) ;
-                          rdfs:comment "Tiene un computador anterior a segunda generación"^^xsd:string ;
-                          rdfs:label "tiene_Tercera_Generacion"^^xsd:string .
+###  http://www.computador.org/#tiene_Tercera_Generacion
+<http://www.computador.org/#tiene_Tercera_Generacion> rdf:type owl:ObjectProperty ;
+                                                      rdfs:subPropertyOf <http://www.computador.org/#tiene_Generacion> ;
+                                                      owl:propertyChainAxiom ( <http://www.computador.org/#tiene_Segunda_Generacion>
+                                                                               <http://www.computador.org/#tiene_Ancestro>
+                                                                             ) ;
+                                                      rdfs:comment "Tiene un computador anterior a segunda generación"^^xsd:string ;
+                                                      rdfs:label "tiene_Tercera_Generacion"^^xsd:string .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
-###  http://www.computador.org#tiene_Precio
-:tiene_Precio rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Computador ;
-              rdfs:range xsd:int ;
-              rdfs:comment "Contiene un precio"^^xsd:string ;
-              rdfs:label "tiene_Precio"^^xsd:string .
+###  http://www.computador.org/#tiene_Precio
+<http://www.computador.org/#tiene_Precio> rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain <http://www.computador.org/#Computador> ;
+                                          rdfs:range xsd:int ;
+                                          rdfs:comment "Contiene un precio"^^xsd:string ;
+                                          rdfs:label "tiene_Precio"^^xsd:string .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://www.computador.org#ATX
-:ATX rdf:type owl:Class ;
-     rdfs:subClassOf :Board ;
-     rdfs:comment "Un modelo de MotherBoard"^^xsd:string ;
-     rdfs:label "ATX"^^xsd:string .
+###  http://www.computador.org/#ATX
+<http://www.computador.org/#ATX> rdf:type owl:Class ;
+                                 rdfs:subClassOf <http://www.computador.org/#Board> ;
+                                 rdfs:comment "Un modelo de MotherBoard"^^xsd:string ;
+                                 rdfs:label "ATX"^^xsd:string .
 
 
-###  http://www.computador.org#Aire
-:Aire rdf:type owl:Class ;
-      rdfs:subClassOf :Tipo_Refrigeracion ;
-      owl:disjointWith :Liquido ;
-      rdfs:comment "Tipo_Refrigeracion de tipo aire"^^xsd:string ;
-      rdfs:label "Aire"^^xsd:string .
+###  http://www.computador.org/#Aire
+<http://www.computador.org/#Aire> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://www.computador.org/#Tipo_Refrigeracion> ;
+                                  owl:disjointWith <http://www.computador.org/#Liquido> ;
+                                  rdfs:comment "Tipo_Refrigeracion de tipo aire"^^xsd:string ;
+                                  rdfs:label "Aire"^^xsd:string .
 
 
-###  http://www.computador.org#Board
-:Board rdf:type owl:Class ;
-       rdfs:subClassOf :Parte_Computador ;
-       rdfs:comment "Tarjeta madre"^^xsd:string ;
-       rdfs:label "Board"^^xsd:string .
+###  http://www.computador.org/#Board
+<http://www.computador.org/#Board> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://www.computador.org/#Parte_Computador> ;
+                                   rdfs:comment "Tarjeta madre"^^xsd:string ;
+                                   rdfs:label "Board"^^xsd:string .
 
 
-###  http://www.computador.org#Computador
-:Computador rdf:type owl:Class ;
-            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                              owl:onProperty :tiene_Gabinete ;
-                              owl:someValuesFrom :Gabinete
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :tiene_Precio ;
-                              owl:someValuesFrom xsd:integer
-                            ] ;
-            rdfs:comment "Computadora común y corriente, todo dispositivo eléctronico capaz de realizar operaciones lógicas y matematicas"^^xsd:string ;
-            rdfs:label "Computador"^^xsd:string .
+###  http://www.computador.org/#Computador
+<http://www.computador.org/#Computador> rdf:type owl:Class ;
+                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.computador.org/#tiene_Gabinete> ;
+                                                          owl:someValuesFrom <http://www.computador.org/#Gabinete>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.computador.org/#tiene_Precio> ;
+                                                          owl:someValuesFrom xsd:integer
+                                                        ] ;
+                                        rdfs:comment "Computadora común y corriente, todo dispositivo eléctronico capaz de realizar operaciones lógicas y matematicas"^^xsd:string ;
+                                        rdfs:label "Computador"^^xsd:string .
 
 
-###  http://www.computador.org#Computador_Antiguo
-:Computador_Antiguo rdf:type owl:Class ;
-                    owl:equivalentClass [ owl:intersectionOf ( :Computador
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :tiene_Parte ;
-                                                                 owl:someValuesFrom :Dos_GB
-                                                               ]
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :tiene_Parte ;
-                                                                 owl:someValuesFrom :Single_Core
-                                                               ]
-                                                             ) ;
-                                          rdf:type owl:Class
-                                        ] ;
-                    rdfs:subClassOf :Computador ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :tiene_Parte ;
-                                      owl:allValuesFrom :Integrada
-                                    ] ;
-                    rdfs:comment "Un computador que sea lo demasiado lento hasta para los estandares actuales, tienden a ser aquellos antes del 2000"^^xsd:string ;
-                    rdfs:label "Computador_Antiguo"^^xsd:string .
+###  http://www.computador.org/#Computador_Antiguo
+<http://www.computador.org/#Computador_Antiguo> rdf:type owl:Class ;
+                                                owl:equivalentClass [ owl:intersectionOf ( <http://www.computador.org/#Computador>
+                                                                                           [ rdf:type owl:Restriction ;
+                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                             owl:someValuesFrom <http://www.computador.org/#Dos_GB>
+                                                                                           ]
+                                                                                           [ rdf:type owl:Restriction ;
+                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                             owl:someValuesFrom <http://www.computador.org/#Single_Core>
+                                                                                           ]
+                                                                                         ) ;
+                                                                      rdf:type owl:Class
+                                                                    ] ;
+                                                rdfs:subClassOf <http://www.computador.org/#Computador> ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                  owl:allValuesFrom <http://www.computador.org/#Integrada>
+                                                                ] ;
+                                                rdfs:comment "Un computador que sea lo demasiado lento hasta para los estandares actuales, tienden a ser aquellos antes del 2000"^^xsd:string ;
+                                                rdfs:label "Computador_Antiguo"^^xsd:string .
 
 
-###  http://www.computador.org#Computador_Bajo_Rendimiento
-:Computador_Bajo_Rendimiento rdf:type owl:Class ;
-                             owl:equivalentClass [ owl:intersectionOf ( :Computador
-                                                                        [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                                                                 owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                                                 owl:onProperty :tiene_Parte ;
-                                                                                                                 owl:someValuesFrom :Cuatro_GB
-                                                                                                               ]
-                                                                                                               [ rdf:type owl:Restriction ;
-                                                                                                                 owl:onProperty :tiene_Parte ;
-                                                                                                                 owl:someValuesFrom :Dos_GB
-                                                                                                               ]
-                                                                                                             )
-                                                                                               ]
-                                                                                               [ rdf:type owl:Class ;
-                                                                                                 owl:complementOf :Computador_Gamer
-                                                                                               ]
-                                                                                               [ rdf:type owl:Restriction ;
-                                                                                                 owl:onProperty :tiene_Parte ;
-                                                                                                 owl:someValuesFrom :Dual_Core
-                                                                                               ]
-                                                                                               [ rdf:type owl:Restriction ;
-                                                                                                 owl:onProperty :tiene_Parte ;
-                                                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                 owl:onClass :Disco_Duro
-                                                                                               ]
-                                                                                             ) ;
-                                                                          rdf:type owl:Class
-                                                                        ]
-                                                                      ) ;
-                                                   rdf:type owl:Class
-                                                 ] ;
-                             rdfs:subClassOf :Computador ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :tiene_Parte ;
-                                               owl:allValuesFrom :Integrada
-                                             ] ;
-                             rdfs:comment "Como dice la clase, un computador que no alcanza los estandares de velocidad actuales"^^xsd:string ;
-                             rdfs:label "Computador_Bajo_Rendimiento"^^xsd:string .
-
-
-###  http://www.computador.org#Computador_Gamer
-:Computador_Gamer rdf:type owl:Class ;
-                  owl:equivalentClass [ owl:intersectionOf ( :Computador
-                                                             [ rdf:type owl:Class ;
-                                                               owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                                                      owl:onProperty :tiene_Parte ;
-                                                                                                      owl:someValuesFrom :Dedicada
-                                                                                                    ]
-                                                                                                    [ rdf:type owl:Restriction ;
-                                                                                                      owl:onProperty :tiene_Parte ;
-                                                                                                      owl:someValuesFrom :Dieciseis_GB
-                                                                                                    ]
-                                                                                                    [ rdf:type owl:Restriction ;
-                                                                                                      owl:onProperty :tiene_Parte ;
-                                                                                                      owl:someValuesFrom :Quad_Core
+###  http://www.computador.org/#Computador_Bajo_Rendimiento
+<http://www.computador.org/#Computador_Bajo_Rendimiento> rdf:type owl:Class ;
+                                                         owl:equivalentClass [ owl:intersectionOf ( <http://www.computador.org/#Computador>
+                                                                                                    [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                                                                                             owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                                                             owl:someValuesFrom <http://www.computador.org/#Cuatro_GB>
+                                                                                                                                           ]
+                                                                                                                                           [ rdf:type owl:Restriction ;
+                                                                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                                                             owl:someValuesFrom <http://www.computador.org/#Dos_GB>
+                                                                                                                                           ]
+                                                                                                                                         )
+                                                                                                                           ]
+                                                                                                                           [ rdf:type owl:Class ;
+                                                                                                                             owl:complementOf <http://www.computador.org/#Computador_Gamer>
+                                                                                                                           ]
+                                                                                                                           [ rdf:type owl:Restriction ;
+                                                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                                             owl:someValuesFrom <http://www.computador.org/#Dual_Core>
+                                                                                                                           ]
+                                                                                                                           [ rdf:type owl:Restriction ;
+                                                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                                             owl:onClass <http://www.computador.org/#Disco_Duro>
+                                                                                                                           ]
+                                                                                                                         ) ;
+                                                                                                      rdf:type owl:Class
                                                                                                     ]
                                                                                                   ) ;
                                                                                rdf:type owl:Class
-                                                                             ]
-                                                                             [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                                                      owl:onProperty :tiene_Parte ;
-                                                                                                      owl:someValuesFrom :Dedicada
-                                                                                                    ]
-                                                                                                    [ rdf:type owl:Restriction ;
-                                                                                                      owl:onProperty :tiene_Parte ;
-                                                                                                      owl:someValuesFrom :Ocho_GB
-                                                                                                    ]
-                                                                                                    [ rdf:type owl:Restriction ;
-                                                                                                      owl:onProperty :tiene_Parte ;
-                                                                                                      owl:someValuesFrom :Octa_Core
-                                                                                                    ]
-                                                                                                  ) ;
-                                                                               rdf:type owl:Class
-                                                                             ]
-                                                                             [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                                                      owl:onProperty :tiene_Parte ;
-                                                                                                      owl:someValuesFrom :Integrada
-                                                                                                    ]
-                                                                                                    [ rdf:type owl:Restriction ;
-                                                                                                      owl:onProperty :tiene_Parte ;
-                                                                                                      owl:someValuesFrom :Octa_Core
-                                                                                                    ]
-                                                                                                    [ rdf:type owl:Restriction ;
-                                                                                                      owl:onProperty :tiene_Parte ;
-                                                                                                      owl:someValuesFrom :Treinta_Y_Dos_GB
-                                                                                                    ]
-                                                                                                  ) ;
-                                                                               rdf:type owl:Class
-                                                                             ]
-                                                                           )
-                                                             ]
-                                                           ) ;
-                                        rdf:type owl:Class
-                                      ] ;
-                  rdfs:subClassOf :Computador .
+                                                                             ] ;
+                                                         rdfs:subClassOf <http://www.computador.org/#Computador> ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                           owl:allValuesFrom <http://www.computador.org/#Integrada>
+                                                                         ] ;
+                                                         rdfs:comment "Como dice la clase, un computador que no alcanza los estandares de velocidad actuales"^^xsd:string ;
+                                                         rdfs:label "Computador_Bajo_Rendimiento"^^xsd:string .
 
 
-###  http://www.computador.org#Computador_Moderno
-:Computador_Moderno rdf:type owl:Class ;
-                    owl:equivalentClass [ owl:intersectionOf ( :Computador
-                                                               [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :tiene_Parte ;
-                                                                                 owl:someValuesFrom :Dieciseis_GB
-                                                                               ]
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :tiene_Parte ;
-                                                                                 owl:someValuesFrom :Ocho_GB
-                                                                               ]
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :tiene_Parte ;
-                                                                                 owl:someValuesFrom :Treinta_Y_Dos_GB
-                                                                               ]
-                                                                             )
-                                                               ]
-                                                               [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :tiene_Parte ;
-                                                                                 owl:someValuesFrom :Dual_Core
-                                                                               ]
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :tiene_Parte ;
-                                                                                 owl:someValuesFrom :Octa_Core
-                                                                               ]
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :tiene_Parte ;
-                                                                                 owl:someValuesFrom :Quad_Core
-                                                                               ]
-                                                                             )
-                                                               ]
-                                                             ) ;
-                                          rdf:type owl:Class
-                                        ] ;
-                    rdfs:subClassOf :Computador ;
-                    rdfs:comment "Computadora que tiende a ser después de los 2000"^^xsd:string ;
-                    rdfs:label "Computador_Moderno"^^xsd:string .
+###  http://www.computador.org/#Computador_Gamer
+<http://www.computador.org/#Computador_Gamer> rdf:type owl:Class ;
+                                              owl:equivalentClass [ owl:intersectionOf ( <http://www.computador.org/#Computador>
+                                                                                         [ rdf:type owl:Class ;
+                                                                                           owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                                                  owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                                                  owl:someValuesFrom <http://www.computador.org/#Dedicada>
+                                                                                                                                ]
+                                                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                                                  owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                                                  owl:someValuesFrom <http://www.computador.org/#Dieciseis_GB>
+                                                                                                                                ]
+                                                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                                                  owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                                                  owl:someValuesFrom <http://www.computador.org/#Quad_Core>
+                                                                                                                                ]
+                                                                                                                              ) ;
+                                                                                                           rdf:type owl:Class
+                                                                                                         ]
+                                                                                                         [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                                                  owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                                                  owl:someValuesFrom <http://www.computador.org/#Dedicada>
+                                                                                                                                ]
+                                                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                                                  owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                                                  owl:someValuesFrom <http://www.computador.org/#Ocho_GB>
+                                                                                                                                ]
+                                                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                                                  owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                                                  owl:someValuesFrom <http://www.computador.org/#Octa_Core>
+                                                                                                                                ]
+                                                                                                                              ) ;
+                                                                                                           rdf:type owl:Class
+                                                                                                         ]
+                                                                                                         [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                                                  owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                                                  owl:someValuesFrom <http://www.computador.org/#Integrada>
+                                                                                                                                ]
+                                                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                                                  owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                                                  owl:someValuesFrom <http://www.computador.org/#Octa_Core>
+                                                                                                                                ]
+                                                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                                                  owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                                                  owl:someValuesFrom <http://www.computador.org/#Treinta_Y_Dos_GB>
+                                                                                                                                ]
+                                                                                                                              ) ;
+                                                                                                           rdf:type owl:Class
+                                                                                                         ]
+                                                                                                       )
+                                                                                         ]
+                                                                                       ) ;
+                                                                    rdf:type owl:Class
+                                                                  ] ;
+                                              rdfs:subClassOf <http://www.computador.org/#Computador> .
 
 
-###  http://www.computador.org#Computador_Oficina
-:Computador_Oficina rdf:type owl:Class ;
-                    owl:equivalentClass [ owl:intersectionOf ( :Computador
-                                                               [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( [ rdf:type owl:Class ;
-                                                                                 owl:complementOf [ rdf:type owl:Restriction ;
-                                                                                                    owl:onProperty :tiene_Parte ;
-                                                                                                    owl:someValuesFrom :Octa_Core
-                                                                                                  ]
-                                                                               ]
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :tiene_Parte ;
-                                                                                 owl:someValuesFrom :Dual_Core
-                                                                               ]
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :tiene_Parte ;
-                                                                                 owl:someValuesFrom :Quad_Core
-                                                                               ]
-                                                                             )
-                                                               ]
-                                                               [ rdf:type owl:Class ;
-                                                                 owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :tiene_Parte ;
-                                                                                 owl:someValuesFrom :Cuatro_GB
-                                                                               ]
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :tiene_Parte ;
-                                                                                 owl:someValuesFrom :Ocho_GB
-                                                                               ]
-                                                                             )
-                                                               ]
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :tiene_Parte ;
-                                                                 owl:someValuesFrom :Integrada
-                                                               ]
-                                                             ) ;
-                                          rdf:type owl:Class
-                                        ] ;
-                    rdfs:subClassOf :Computador ;
-                    rdfs:comment "Computadora especializada en los trabajos de oficina"^^xsd:string ;
-                    rdfs:label "Computador_Oficina"^^xsd:string .
+###  http://www.computador.org/#Computador_Moderno
+<http://www.computador.org/#Computador_Moderno> rdf:type owl:Class ;
+                                                owl:equivalentClass [ owl:intersectionOf ( <http://www.computador.org/#Computador>
+                                                                                           [ rdf:type owl:Class ;
+                                                                                             owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                             owl:someValuesFrom <http://www.computador.org/#Dieciseis_GB>
+                                                                                                           ]
+                                                                                                           [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                             owl:someValuesFrom <http://www.computador.org/#Ocho_GB>
+                                                                                                           ]
+                                                                                                           [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                             owl:someValuesFrom <http://www.computador.org/#Treinta_Y_Dos_GB>
+                                                                                                           ]
+                                                                                                         )
+                                                                                           ]
+                                                                                           [ rdf:type owl:Class ;
+                                                                                             owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                             owl:someValuesFrom <http://www.computador.org/#Dual_Core>
+                                                                                                           ]
+                                                                                                           [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                             owl:someValuesFrom <http://www.computador.org/#Octa_Core>
+                                                                                                           ]
+                                                                                                           [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                             owl:someValuesFrom <http://www.computador.org/#Quad_Core>
+                                                                                                           ]
+                                                                                                         )
+                                                                                           ]
+                                                                                         ) ;
+                                                                      rdf:type owl:Class
+                                                                    ] ;
+                                                rdfs:subClassOf <http://www.computador.org/#Computador> ;
+                                                rdfs:comment "Computadora que tiende a ser después de los 2000"^^xsd:string ;
+                                                rdfs:label "Computador_Moderno"^^xsd:string .
 
 
-###  http://www.computador.org#Cuatro_GB
-:Cuatro_GB rdf:type owl:Class ;
-           rdfs:subClassOf :Ram ;
-           rdfs:comment "Ram 4gb"^^xsd:string ;
-           rdfs:label "Cuatro_GB"^^xsd:string .
+###  http://www.computador.org/#Computador_Oficina
+<http://www.computador.org/#Computador_Oficina> rdf:type owl:Class ;
+                                                owl:equivalentClass [ owl:intersectionOf ( <http://www.computador.org/#Computador>
+                                                                                           [ rdf:type owl:Class ;
+                                                                                             owl:unionOf ( [ rdf:type owl:Class ;
+                                                                                                             owl:complementOf [ rdf:type owl:Restriction ;
+                                                                                                                                owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                                                owl:someValuesFrom <http://www.computador.org/#Octa_Core>
+                                                                                                                              ]
+                                                                                                           ]
+                                                                                                           [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                             owl:someValuesFrom <http://www.computador.org/#Dual_Core>
+                                                                                                           ]
+                                                                                                           [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                             owl:someValuesFrom <http://www.computador.org/#Quad_Core>
+                                                                                                           ]
+                                                                                                         )
+                                                                                           ]
+                                                                                           [ rdf:type owl:Class ;
+                                                                                             owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                             owl:someValuesFrom <http://www.computador.org/#Cuatro_GB>
+                                                                                                           ]
+                                                                                                           [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                                             owl:someValuesFrom <http://www.computador.org/#Ocho_GB>
+                                                                                                           ]
+                                                                                                         )
+                                                                                           ]
+                                                                                           [ rdf:type owl:Restriction ;
+                                                                                             owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                                                             owl:someValuesFrom <http://www.computador.org/#Integrada>
+                                                                                           ]
+                                                                                         ) ;
+                                                                      rdf:type owl:Class
+                                                                    ] ;
+                                                rdfs:subClassOf <http://www.computador.org/#Computador> ;
+                                                rdfs:comment "Computadora especializada en los trabajos de oficina"^^xsd:string ;
+                                                rdfs:label "Computador_Oficina"^^xsd:string .
 
 
-###  http://www.computador.org#Dedicada
-:Dedicada rdf:type owl:Class ;
-          rdfs:subClassOf :GPU ;
-          rdfs:comment "Tarjeta de vídeo aíslada del cpu"^^xsd:string ;
-          rdfs:label "Dedicada"^^xsd:string .
+###  http://www.computador.org/#Cuatro_GB
+<http://www.computador.org/#Cuatro_GB> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://www.computador.org/#Ram> ;
+                                       rdfs:comment "Ram 4gb"^^xsd:string ;
+                                       rdfs:label "Cuatro_GB"^^xsd:string .
 
 
-###  http://www.computador.org#Dieciseis_GB
-:Dieciseis_GB rdf:type owl:Class ;
-              rdfs:subClassOf :Ram ;
-              rdfs:comment "Ram 16gb"^^xsd:string ;
-              rdfs:label "Dieciseis_GB"^^xsd:string .
+###  http://www.computador.org/#Dedicada
+<http://www.computador.org/#Dedicada> rdf:type owl:Class ;
+                                      rdfs:subClassOf <http://www.computador.org/#GPU> ;
+                                      rdfs:comment "Tarjeta de vídeo aíslada del cpu"^^xsd:string ;
+                                      rdfs:label "Dedicada"^^xsd:string .
 
 
-###  http://www.computador.org#Disco_Duro
-:Disco_Duro rdf:type owl:Class ;
-            rdfs:subClassOf :Parte_Computador ;
-            rdfs:comment "Los disco duros de almacenamientos"^^xsd:string ;
-            rdfs:label "Disco_Duro"^^xsd:string .
+###  http://www.computador.org/#Dieciseis_GB
+<http://www.computador.org/#Dieciseis_GB> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://www.computador.org/#Ram> ;
+                                          rdfs:comment "Ram 16gb"^^xsd:string ;
+                                          rdfs:label "Dieciseis_GB"^^xsd:string .
 
 
-###  http://www.computador.org#Dos_GB
-:Dos_GB rdf:type owl:Class ;
-        rdfs:subClassOf :Ram ;
-        rdfs:comment "Ram 2gb"^^xsd:string ;
-        rdfs:label "Dos_GB"^^xsd:string .
+###  http://www.computador.org/#Disco_Duro
+<http://www.computador.org/#Disco_Duro> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://www.computador.org/#Parte_Computador> ;
+                                        rdfs:comment "Los disco duros de almacenamientos"^^xsd:string ;
+                                        rdfs:label "Disco_Duro"^^xsd:string .
 
 
-###  http://www.computador.org#Dual_Core
-:Dual_Core rdf:type owl:Class ;
-           rdfs:subClassOf :Nucleo_CPU ;
-           rdfs:comment "Dos nucleos"^^xsd:string ;
-           rdfs:label "Dual_Core"^^xsd:string .
+###  http://www.computador.org/#Dos_GB
+<http://www.computador.org/#Dos_GB> rdf:type owl:Class ;
+                                    rdfs:subClassOf <http://www.computador.org/#Ram> ;
+                                    rdfs:comment "Ram 2gb"^^xsd:string ;
+                                    rdfs:label "Dos_GB"^^xsd:string .
 
 
-###  http://www.computador.org#EATX
-:EATX rdf:type owl:Class ;
-      rdfs:subClassOf :Board ;
-      rdfs:comment "Un modelo de motherboard"^^xsd:string ;
-      rdfs:label "EATX"^^xsd:string .
+###  http://www.computador.org/#Dual_Core
+<http://www.computador.org/#Dual_Core> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://www.computador.org/#Nucleo_CPU> ;
+                                       rdfs:comment "Dos nucleos"^^xsd:string ;
+                                       rdfs:label "Dual_Core"^^xsd:string .
 
 
-###  http://www.computador.org#GPU
-:GPU rdf:type owl:Class ;
-     rdfs:subClassOf :Parte_Computador ;
-     rdfs:comment "Tarjeta de vídeo"^^xsd:string ;
-     rdfs:label "GPU"^^xsd:string .
+###  http://www.computador.org/#EATX
+<http://www.computador.org/#EATX> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://www.computador.org/#Board> ;
+                                  rdfs:comment "Un modelo de motherboard"^^xsd:string ;
+                                  rdfs:label "EATX"^^xsd:string .
 
 
-###  http://www.computador.org#Gabinete
-:Gabinete rdf:type owl:Class ;
-          rdfs:comment "La carcasa del computador"^^xsd:string ;
-          rdfs:label "Gabinete"^^xsd:string .
+###  http://www.computador.org/#GPU
+<http://www.computador.org/#GPU> rdf:type owl:Class ;
+                                 rdfs:subClassOf <http://www.computador.org/#Parte_Computador> ;
+                                 rdfs:comment "Tarjeta de vídeo"^^xsd:string ;
+                                 rdfs:label "GPU"^^xsd:string .
 
 
-###  http://www.computador.org#HDD
-:HDD rdf:type owl:Class ;
-     rdfs:subClassOf :Disco_Duro ;
-     rdfs:comment "Hard drive disk"^^xsd:string ;
-     rdfs:label "HDD"^^xsd:string .
+###  http://www.computador.org/#Gabinete
+<http://www.computador.org/#Gabinete> rdf:type owl:Class ;
+                                      rdfs:comment "La carcasa del computador"^^xsd:string ;
+                                      rdfs:label "Gabinete"^^xsd:string .
 
 
-###  http://www.computador.org#Integrada
-:Integrada rdf:type owl:Class ;
-           rdfs:subClassOf :GPU ;
-           rdfs:comment "Dada por la CPU"^^xsd:string ;
-           rdfs:label "Integrada"^^xsd:string .
+###  http://www.computador.org/#HDD
+<http://www.computador.org/#HDD> rdf:type owl:Class ;
+                                 rdfs:subClassOf <http://www.computador.org/#Disco_Duro> ;
+                                 rdfs:comment "Hard drive disk"^^xsd:string ;
+                                 rdfs:label "HDD"^^xsd:string .
 
 
-###  http://www.computador.org#Liquido
-:Liquido rdf:type owl:Class ;
-         rdfs:subClassOf :Tipo_Refrigeracion ;
-         rdfs:comment "Tipo_Refrigeracion de tipo liquido"^^xsd:string ;
-         rdfs:label "Liquido"^^xsd:string .
+###  http://www.computador.org/#Integrada
+<http://www.computador.org/#Integrada> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://www.computador.org/#GPU> ;
+                                       rdfs:comment "Dada por la CPU"^^xsd:string ;
+                                       rdfs:label "Integrada"^^xsd:string .
 
 
-###  http://www.computador.org#Micro-ATX
-:Micro-ATX rdf:type owl:Class ;
-           rdfs:subClassOf :Board ;
-           rdfs:comment "Un modelo de motherboard"^^xsd:string ;
-           rdfs:label "Micro-ATX"^^xsd:string .
+###  http://www.computador.org/#Liquido
+<http://www.computador.org/#Liquido> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://www.computador.org/#Tipo_Refrigeracion> ;
+                                     rdfs:comment "Tipo_Refrigeracion de tipo liquido"^^xsd:string ;
+                                     rdfs:label "Liquido"^^xsd:string .
 
 
-###  http://www.computador.org#Mini-ITX
-:Mini-ITX rdf:type owl:Class ;
-          rdfs:subClassOf :Board ;
-          rdfs:comment "Un modelo de motherboard"^^xsd:string ;
-          rdfs:label "Mini-ITX"^^xsd:string .
+###  http://www.computador.org/#Micro-ATX
+<http://www.computador.org/#Micro-ATX> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://www.computador.org/#Board> ;
+                                       rdfs:comment "Un modelo de motherboard"^^xsd:string ;
+                                       rdfs:label "Micro-ATX"^^xsd:string .
 
 
-###  http://www.computador.org#Nucleo_CPU
-:Nucleo_CPU rdf:type owl:Class ;
-            rdfs:subClassOf :Parte_Computador ;
-            rdfs:comment "Un procesador"^^xsd:string ;
-            rdfs:label "Nucleo_CPU"^^xsd:string .
+###  http://www.computador.org/#Mini-ITX
+<http://www.computador.org/#Mini-ITX> rdf:type owl:Class ;
+                                      rdfs:subClassOf <http://www.computador.org/#Board> ;
+                                      rdfs:comment "Un modelo de motherboard"^^xsd:string ;
+                                      rdfs:label "Mini-ITX"^^xsd:string .
 
 
-###  http://www.computador.org#Ocho_GB
-:Ocho_GB rdf:type owl:Class ;
-         rdfs:subClassOf :Ram ;
-         rdfs:comment "Ram 8gb"^^xsd:string ;
-         rdfs:label "Ocho_GB"^^xsd:string .
+###  http://www.computador.org/#Nucleo_CPU
+<http://www.computador.org/#Nucleo_CPU> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://www.computador.org/#Parte_Computador> ;
+                                        rdfs:comment "Un procesador"^^xsd:string ;
+                                        rdfs:label "Nucleo_CPU"^^xsd:string .
 
 
-###  http://www.computador.org#Octa_Core
-:Octa_Core rdf:type owl:Class ;
-           rdfs:subClassOf :Nucleo_CPU ;
-           rdfs:comment "Ocho nucleos"^^xsd:string ;
-           rdfs:label "Octa_Core"^^xsd:string .
+###  http://www.computador.org/#Ocho_GB
+<http://www.computador.org/#Ocho_GB> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://www.computador.org/#Ram> ;
+                                     rdfs:comment "Ram 8gb"^^xsd:string ;
+                                     rdfs:label "Ocho_GB"^^xsd:string .
 
 
-###  http://www.computador.org#Parte_Computador
-:Parte_Computador rdf:type owl:Class ;
-                  rdfs:comment "Las partes que compone un computador"^^xsd:string ;
-                  rdfs:label "Parte_Computador"^^xsd:string .
+###  http://www.computador.org/#Octa_Core
+<http://www.computador.org/#Octa_Core> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://www.computador.org/#Nucleo_CPU> ;
+                                       rdfs:comment "Ocho nucleos"^^xsd:string ;
+                                       rdfs:label "Octa_Core"^^xsd:string .
 
 
-###  http://www.computador.org#Portatil
-:Portatil rdf:type owl:Class ;
-          rdfs:subClassOf :Gabinete ;
-          owl:disjointWith :Torre ;
-          rdfs:comment "Si es portatil"^^xsd:string ;
-          rdfs:label "Portatil"^^xsd:string .
+###  http://www.computador.org/#Parte_Computador
+<http://www.computador.org/#Parte_Computador> rdf:type owl:Class ;
+                                              rdfs:comment "Las partes que compone un computador"^^xsd:string ;
+                                              rdfs:label "Parte_Computador"^^xsd:string .
 
 
-###  http://www.computador.org#Quad_Core
-:Quad_Core rdf:type owl:Class ;
-           rdfs:subClassOf :Nucleo_CPU ;
-           rdfs:comment "Cuatro nucleos"^^xsd:string ;
-           rdfs:label "Quad_Core"^^xsd:string .
+###  http://www.computador.org/#Portatil
+<http://www.computador.org/#Portatil> rdf:type owl:Class ;
+                                      rdfs:subClassOf <http://www.computador.org/#Gabinete> ;
+                                      owl:disjointWith <http://www.computador.org/#Torre> ;
+                                      rdfs:comment "Si es portatil"^^xsd:string ;
+                                      rdfs:label "Portatil"^^xsd:string .
 
 
-###  http://www.computador.org#Ram
-:Ram rdf:type owl:Class ;
-     rdfs:subClassOf :Parte_Computador ;
-     rdfs:comment "Tarjeta Ram"^^xsd:string ;
-     rdfs:label "Ram"^^xsd:string .
+###  http://www.computador.org/#Quad_Core
+<http://www.computador.org/#Quad_Core> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://www.computador.org/#Nucleo_CPU> ;
+                                       rdfs:comment "Cuatro nucleos"^^xsd:string ;
+                                       rdfs:label "Quad_Core"^^xsd:string .
 
 
-###  http://www.computador.org#SSD
-:SSD rdf:type owl:Class ;
-     rdfs:subClassOf :Disco_Duro ;
-     rdfs:comment "Disco de estado solido"^^xsd:string ;
-     rdfs:label "SSD"^^xsd:string .
+###  http://www.computador.org/#Ram
+<http://www.computador.org/#Ram> rdf:type owl:Class ;
+                                 rdfs:subClassOf <http://www.computador.org/#Parte_Computador> ;
+                                 rdfs:comment "Tarjeta Ram"^^xsd:string ;
+                                 rdfs:label "Ram"^^xsd:string .
 
 
-###  http://www.computador.org#Single_Core
-:Single_Core rdf:type owl:Class ;
-             rdfs:subClassOf :Nucleo_CPU ;
-             rdfs:comment "Un sólo nucleo"^^xsd:string ;
-             rdfs:label "Single_Core"^^xsd:string .
+###  http://www.computador.org/#SSD
+<http://www.computador.org/#SSD> rdf:type owl:Class ;
+                                 rdfs:subClassOf <http://www.computador.org/#Disco_Duro> ;
+                                 rdfs:comment "Disco de estado solido"^^xsd:string ;
+                                 rdfs:label "SSD"^^xsd:string .
 
 
-###  http://www.computador.org#Tipo_Refrigeracion
-:Tipo_Refrigeracion rdf:type owl:Class ;
-                    rdfs:subClassOf :Parte_Computador ;
-                    rdfs:comment "Refrigeración para la CPU del computador"^^xsd:string ;
-                    rdfs:label "Tipo_Refrigeracion"^^xsd:string .
+###  http://www.computador.org/#Single_Core
+<http://www.computador.org/#Single_Core> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://www.computador.org/#Nucleo_CPU> ;
+                                         rdfs:comment "Un sólo nucleo"^^xsd:string ;
+                                         rdfs:label "Single_Core"^^xsd:string .
 
 
-###  http://www.computador.org#Torre
-:Torre rdf:type owl:Class ;
-       rdfs:subClassOf :Gabinete ;
-       rdfs:comment "Si es un computador de mesa"^^xsd:string ;
-       rdfs:label "Torre"^^xsd:string .
+###  http://www.computador.org/#Tipo_Refrigeracion
+<http://www.computador.org/#Tipo_Refrigeracion> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://www.computador.org/#Parte_Computador> ;
+                                                rdfs:comment "Refrigeración para la CPU del computador"^^xsd:string ;
+                                                rdfs:label "Tipo_Refrigeracion"^^xsd:string .
 
 
-###  http://www.computador.org#Treinta_Y_Dos_GB
-:Treinta_Y_Dos_GB rdf:type owl:Class ;
-                  rdfs:subClassOf :Ram ;
-                  rdfs:comment "Ram 32gb"^^xsd:string ;
-                  rdfs:label "Treinta_Y_Dos_GB"^^xsd:string .
+###  http://www.computador.org/#Torre
+<http://www.computador.org/#Torre> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://www.computador.org/#Gabinete> ;
+                                   rdfs:comment "Si es un computador de mesa"^^xsd:string ;
+                                   rdfs:label "Torre"^^xsd:string .
+
+
+###  http://www.computador.org/#Treinta_Y_Dos_GB
+<http://www.computador.org/#Treinta_Y_Dos_GB> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://www.computador.org/#Ram> ;
+                                              rdfs:comment "Ram 32gb"^^xsd:string ;
+                                              rdfs:label "Treinta_Y_Dos_GB"^^xsd:string .
 
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://www.computador.org#Asus_TUF_Gaming
-:Asus_TUF_Gaming rdf:type owl:NamedIndividual ,
-                          :Computador_Gamer ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :tiene_Parte ;
-                            owl:someValuesFrom :Ocho_GB
-                          ] ;
-                 owl:sameAs :Computador_Gamer ;
-                 :tiene_Precio 3750000 ;
-                 rdfs:comment "El computador Asus TUF Gaming"^^xsd:string ;
-                 rdfs:label "Asus_TUF_Gaming"^^xsd:string .
+###  http://www.computador.org/#Asus_TUF_Gaming
+<http://www.computador.org/#Asus_TUF_Gaming> rdf:type owl:NamedIndividual ,
+                                                      <http://www.computador.org/#Computador_Gamer> ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                        owl:someValuesFrom <http://www.computador.org/#Ocho_GB>
+                                                      ] ;
+                                             owl:sameAs <http://www.computador.org/#Computador_Gamer> ;
+                                             <http://www.computador.org/#tiene_Precio> 3750000 ;
+                                             rdfs:comment "El computador Asus TUF Gaming"^^xsd:string ;
+                                             rdfs:label "Asus_TUF_Gaming"^^xsd:string .
 
 
-###  http://www.computador.org#ChromeBook_113180
-:ChromeBook_113180 rdf:type owl:NamedIndividual ,
-                            :Computador_Bajo_Rendimiento ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :tiene_Parte ;
-                              owl:someValuesFrom :Dos_GB
-                            ] ;
-                   rdfs:comment "El computador Chromebook 113180"^^xsd:string ;
-                   rdfs:label "ChromeBook_113180"^^xsd:string .
+###  http://www.computador.org/#ChromeBook_113180
+<http://www.computador.org/#ChromeBook_113180> rdf:type owl:NamedIndividual ,
+                                                        <http://www.computador.org/#Computador_Bajo_Rendimiento> ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                          owl:someValuesFrom <http://www.computador.org/#Dos_GB>
+                                                        ] ;
+                                               rdfs:comment "El computador Chromebook 113180"^^xsd:string ;
+                                               rdfs:label "ChromeBook_113180"^^xsd:string .
 
 
-###  http://www.computador.org#Computador_Gamer
-:Computador_Gamer rdf:type owl:NamedIndividual ,
-                           :Computador_Gamer ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :tiene_Parte ;
-                             owl:someValuesFrom :Ocho_GB
-                           ] .
+###  http://www.computador.org/#Computador_Gamer
+<http://www.computador.org/#Computador_Gamer> rdf:type owl:NamedIndividual ,
+                                                       <http://www.computador.org/#Computador_Gamer> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                         owl:someValuesFrom <http://www.computador.org/#Ocho_GB>
+                                                       ] .
 
 
-###  http://www.computador.org#Computador_HP_250
-:Computador_HP_250 rdf:type owl:NamedIndividual ,
-                            :Computador_Moderno ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :tiene_Parte ;
-                              owl:someValuesFrom :Ocho_GB
-                            ] ;
-                   rdfs:comment "El computador HP 250"^^xsd:string ;
-                   rdfs:label "Computador_Hp_250"^^xsd:string .
+###  http://www.computador.org/#Computador_HP_250
+<http://www.computador.org/#Computador_HP_250> rdf:type owl:NamedIndividual ,
+                                                        <http://www.computador.org/#Computador_Moderno> ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                          owl:someValuesFrom <http://www.computador.org/#Ocho_GB>
+                                                        ] ;
+                                               rdfs:comment "El computador HP 250"^^xsd:string ;
+                                               rdfs:label "Computador_Hp_250"^^xsd:string .
 
 
-###  http://www.computador.org#Lenovo_IdeaCenter
-:Lenovo_IdeaCenter rdf:type owl:NamedIndividual ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :tiene_Gabinete ;
-                              owl:someValuesFrom :Torre
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :tiene_Parte ;
-                              owl:someValuesFrom :Aire
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :tiene_Parte ;
-                              owl:someValuesFrom :Cuatro_GB
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :tiene_Parte ;
-                              owl:someValuesFrom :Dual_Core
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :tiene_Parte ;
-                              owl:someValuesFrom :EATX
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :tiene_Parte ;
-                              owl:someValuesFrom :HDD
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :tiene_Parte ;
-                              owl:someValuesFrom :Integrada
-                            ] ;
-                   :tiene_Precio 2749901 ;
-                   rdfs:comment "El computador Lenovo IdeaCenter"^^xsd:string ;
-                   rdfs:label "Lenovo_IdeaCenter"^^xsd:string .
+###  http://www.computador.org/#Lenovo_IdeaCenter
+<http://www.computador.org/#Lenovo_IdeaCenter> rdf:type owl:NamedIndividual ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.computador.org/#tiene_Gabinete> ;
+                                                          owl:someValuesFrom <http://www.computador.org/#Torre>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                          owl:someValuesFrom <http://www.computador.org/#Aire>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                          owl:someValuesFrom <http://www.computador.org/#Cuatro_GB>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                          owl:someValuesFrom <http://www.computador.org/#Dual_Core>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                          owl:someValuesFrom <http://www.computador.org/#EATX>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                          owl:someValuesFrom <http://www.computador.org/#HDD>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                          owl:someValuesFrom <http://www.computador.org/#Integrada>
+                                                        ] ;
+                                               <http://www.computador.org/#tiene_Precio> 2749901 ;
+                                               rdfs:comment "El computador Lenovo IdeaCenter"^^xsd:string ;
+                                               rdfs:label "Lenovo_IdeaCenter"^^xsd:string .
 
 
-###  http://www.computador.org#Lenovo_Ideapad_3
-:Lenovo_Ideapad_3 rdf:type owl:NamedIndividual ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :tiene_Gabinete ;
-                             owl:someValuesFrom :Torre
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :tiene_Parte ;
-                             owl:someValuesFrom :ATX
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :tiene_Parte ;
-                             owl:someValuesFrom :Aire
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :tiene_Parte ;
-                             owl:someValuesFrom :HDD
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :tiene_Parte ;
-                             owl:someValuesFrom :Integrada
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :tiene_Parte ;
-                             owl:someValuesFrom :Ocho_GB
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :tiene_Parte ;
-                             owl:someValuesFrom :Octa_Core
-                           ] ;
-                  :tiene_Precio 23999901 ;
-                  rdfs:comment "El computador Lenovo IdeaPad 3"^^xsd:string ;
-                  rdfs:label "Lenovo_Ideapad_3"^^xsd:string .
+###  http://www.computador.org/#Lenovo_Ideapad_3
+<http://www.computador.org/#Lenovo_Ideapad_3> rdf:type owl:NamedIndividual ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.computador.org/#tiene_Gabinete> ;
+                                                         owl:someValuesFrom <http://www.computador.org/#Torre>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                         owl:someValuesFrom <http://www.computador.org/#ATX>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                         owl:someValuesFrom <http://www.computador.org/#Aire>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                         owl:someValuesFrom <http://www.computador.org/#HDD>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                         owl:someValuesFrom <http://www.computador.org/#Integrada>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                         owl:someValuesFrom <http://www.computador.org/#Ocho_GB>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                         owl:someValuesFrom <http://www.computador.org/#Octa_Core>
+                                                       ] ;
+                                              <http://www.computador.org/#tiene_Precio> 23999901 ;
+                                              rdfs:comment "El computador Lenovo IdeaPad 3"^^xsd:string ;
+                                              rdfs:label "Lenovo_Ideapad_3"^^xsd:string .
 
 
-###  http://www.computador.org#Macintosh_128K
-:Macintosh_128K rdf:type owl:NamedIndividual ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :tiene_Gabinete ;
-                           owl:someValuesFrom :Torre
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :tiene_Parte ;
-                           owl:someValuesFrom :Aire
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :tiene_Parte ;
-                           owl:someValuesFrom :Dos_GB
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :tiene_Parte ;
-                           owl:someValuesFrom :HDD
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :tiene_Parte ;
-                           owl:someValuesFrom :Integrada
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :tiene_Parte ;
-                           owl:someValuesFrom :Single_Core
-                         ] ;
-                rdfs:comment "El computador Macintosh 128K"^^xsd:string ;
-                rdfs:label "Macintosh_128K"^^xsd:string .
+###  http://www.computador.org/#Macintosh_128K
+<http://www.computador.org/#Macintosh_128K> rdf:type owl:NamedIndividual ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.computador.org/#tiene_Gabinete> ;
+                                                       owl:someValuesFrom <http://www.computador.org/#Torre>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                       owl:someValuesFrom <http://www.computador.org/#Aire>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                       owl:someValuesFrom <http://www.computador.org/#Dos_GB>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                       owl:someValuesFrom <http://www.computador.org/#HDD>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                       owl:someValuesFrom <http://www.computador.org/#Integrada>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                       owl:someValuesFrom <http://www.computador.org/#Single_Core>
+                                                     ] ;
+                                            rdfs:comment "El computador Macintosh 128K"^^xsd:string ;
+                                            rdfs:label "Macintosh_128K"^^xsd:string .
 
 [ rdf:type owl:NegativePropertyAssertion ;
-   owl:sourceIndividual :Macintosh_128K ;
-   owl:assertionProperty :tiene_Coincidencia ;
-   owl:targetIndividual :Computador_Gamer
+   owl:sourceIndividual <http://www.computador.org/#Macintosh_128K> ;
+   owl:assertionProperty <http://www.computador.org/#tiene_Coincidencia> ;
+   owl:targetIndividual <http://www.computador.org/#Computador_Gamer>
  ] .
 
 
-###  http://www.computador.org#Victus_dlh007
-:Victus_dlh007 rdf:type owl:NamedIndividual ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :tiene_Gabinete ;
-                          owl:someValuesFrom :Portatil
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :tiene_Parte ;
-                          owl:someValuesFrom :Aire
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :tiene_Parte ;
-                          owl:someValuesFrom :Dedicada
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :tiene_Parte ;
-                          owl:someValuesFrom :EATX
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :tiene_Parte ;
-                          owl:someValuesFrom :Ocho_GB
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :tiene_Parte ;
-                          owl:someValuesFrom :Octa_Core
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :tiene_Parte ;
-                          owl:someValuesFrom :SSD
-                        ] ;
-               :tiene_Coincidencia :Victus_dlh008 ;
-               :tiene_Precio 7499000 ;
-               rdfs:comment "El computador Victus dlh007"^^xsd:string ;
-               rdfs:label "Victus_dlh007"^^xsd:string .
+###  http://www.computador.org/#Victus_dlh007
+<http://www.computador.org/#Victus_dlh007> rdf:type owl:NamedIndividual ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.computador.org/#tiene_Gabinete> ;
+                                                      owl:someValuesFrom <http://www.computador.org/#Portatil>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                      owl:someValuesFrom <http://www.computador.org/#Aire>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                      owl:someValuesFrom <http://www.computador.org/#Dedicada>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                      owl:someValuesFrom <http://www.computador.org/#EATX>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                      owl:someValuesFrom <http://www.computador.org/#Ocho_GB>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                      owl:someValuesFrom <http://www.computador.org/#Octa_Core>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                      owl:someValuesFrom <http://www.computador.org/#SSD>
+                                                    ] ;
+                                           <http://www.computador.org/#tiene_Coincidencia> <http://www.computador.org/#Victus_dlh008> ;
+                                           <http://www.computador.org/#tiene_Precio> 7499000 ;
+                                           rdfs:comment "El computador Victus dlh007"^^xsd:string ;
+                                           rdfs:label "Victus_dlh007"^^xsd:string .
 
 
-###  http://www.computador.org#Victus_dlh008
-:Victus_dlh008 rdf:type owl:NamedIndividual ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :tiene_Gabinete ;
-                          owl:someValuesFrom :Portatil
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :tiene_Parte ;
-                          owl:someValuesFrom :ATX
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :tiene_Parte ;
-                          owl:someValuesFrom :Aire
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :tiene_Parte ;
-                          owl:someValuesFrom :Dedicada
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :tiene_Parte ;
-                          owl:someValuesFrom :Dieciseis_GB
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :tiene_Parte ;
-                          owl:someValuesFrom :Quad_Core
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :tiene_Parte ;
-                          owl:someValuesFrom :SSD
-                        ] ;
-               :tiene_Precio 7499000 ;
-               rdfs:comment "El computador dlh008"^^xsd:string ;
-               rdfs:label "Victus_dlh008"^^xsd:string .
+###  http://www.computador.org/#Victus_dlh008
+<http://www.computador.org/#Victus_dlh008> rdf:type owl:NamedIndividual ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.computador.org/#tiene_Gabinete> ;
+                                                      owl:someValuesFrom <http://www.computador.org/#Portatil>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                      owl:someValuesFrom <http://www.computador.org/#ATX>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                      owl:someValuesFrom <http://www.computador.org/#Aire>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                      owl:someValuesFrom <http://www.computador.org/#Dedicada>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                      owl:someValuesFrom <http://www.computador.org/#Dieciseis_GB>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                      owl:someValuesFrom <http://www.computador.org/#Quad_Core>
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                      owl:someValuesFrom <http://www.computador.org/#SSD>
+                                                    ] ;
+                                           <http://www.computador.org/#tiene_Precio> 7499000 ;
+                                           rdfs:comment "El computador dlh008"^^xsd:string ;
+                                           rdfs:label "Victus_dlh008"^^xsd:string .
 
 [ rdf:type owl:NegativePropertyAssertion ;
-   owl:sourceIndividual :Victus_dlh008 ;
-   owl:assertionProperty :tiene_Coincidencia ;
-   owl:targetIndividual :iMac_G3
+   owl:sourceIndividual <http://www.computador.org/#Victus_dlh008> ;
+   owl:assertionProperty <http://www.computador.org/#tiene_Coincidencia> ;
+   owl:targetIndividual <http://www.computador.org/#iMac_G3>
  ] .
 
 
-###  http://www.computador.org#iMac_G3
-:iMac_G3 rdf:type owl:NamedIndividual ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Gabinete ;
-                    owl:someValuesFrom :Torre
-                  ] ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Parte ;
-                    owl:someValuesFrom :Aire
-                  ] ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Parte ;
-                    owl:someValuesFrom :Dos_GB
-                  ] ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Parte ;
-                    owl:someValuesFrom :HDD
-                  ] ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Parte ;
-                    owl:someValuesFrom :Integrada
-                  ] ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Parte ;
-                    owl:someValuesFrom :Single_Core
-                  ] ;
-         :tiene_Ancestro :Macintosh_128K ;
-         rdfs:comment "El computador iMac G3"^^xsd:string ;
-         rdfs:label "iMac_G3"^^xsd:string .
+###  http://www.computador.org/#iMac_G3
+<http://www.computador.org/#iMac_G3> rdf:type owl:NamedIndividual ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Gabinete> ;
+                                                owl:someValuesFrom <http://www.computador.org/#Torre>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                owl:someValuesFrom <http://www.computador.org/#Aire>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                owl:someValuesFrom <http://www.computador.org/#Dos_GB>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                owl:someValuesFrom <http://www.computador.org/#HDD>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                owl:someValuesFrom <http://www.computador.org/#Integrada>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                owl:someValuesFrom <http://www.computador.org/#Single_Core>
+                                              ] ;
+                                     <http://www.computador.org/#tiene_Ancestro> <http://www.computador.org/#Macintosh_128K> ;
+                                     rdfs:comment "El computador iMac G3"^^xsd:string ;
+                                     rdfs:label "iMac_G3"^^xsd:string .
 
 
-###  http://www.computador.org#iMac_G4
-:iMac_G4 rdf:type owl:NamedIndividual ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Gabinete ;
-                    owl:someValuesFrom :Torre
-                  ] ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Parte ;
-                    owl:someValuesFrom :Aire
-                  ] ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Parte ;
-                    owl:someValuesFrom :Dos_GB
-                  ] ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Parte ;
-                    owl:someValuesFrom :HDD
-                  ] ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Parte ;
-                    owl:someValuesFrom :Integrada
-                  ] ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Parte ;
-                    owl:someValuesFrom :Single_Core
-                  ] ;
-         :tiene_Ancestro :iMac_G3 ;
-         :tiene_Hijo_Generacion :iMac_G5 ;
-         rdfs:comment "El computador iMac G4"^^xsd:string ;
-         rdfs:label "iMac_G4"^^xsd:string .
+###  http://www.computador.org/#iMac_G4
+<http://www.computador.org/#iMac_G4> rdf:type owl:NamedIndividual ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Gabinete> ;
+                                                owl:someValuesFrom <http://www.computador.org/#Torre>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                owl:someValuesFrom <http://www.computador.org/#Aire>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                owl:someValuesFrom <http://www.computador.org/#Dos_GB>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                owl:someValuesFrom <http://www.computador.org/#HDD>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                owl:someValuesFrom <http://www.computador.org/#Integrada>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                owl:someValuesFrom <http://www.computador.org/#Single_Core>
+                                              ] ;
+                                     <http://www.computador.org/#tiene_Ancestro> <http://www.computador.org/#iMac_G3> ;
+                                     <http://www.computador.org/#tiene_Hijo_Generacion> <http://www.computador.org/#iMac_G5> ;
+                                     rdfs:comment "El computador iMac G4"^^xsd:string ;
+                                     rdfs:label "iMac_G4"^^xsd:string .
 
 
-###  http://www.computador.org#iMac_G5
-:iMac_G5 rdf:type owl:NamedIndividual ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Gabinete ;
-                    owl:someValuesFrom :Torre
-                  ] ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Parte ;
-                    owl:someValuesFrom :Aire
-                  ] ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Parte ;
-                    owl:someValuesFrom :Dos_GB
-                  ] ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Parte ;
-                    owl:someValuesFrom :HDD
-                  ] ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Parte ;
-                    owl:someValuesFrom :Integrada
-                  ] ,
-                  [ rdf:type owl:Restriction ;
-                    owl:onProperty :tiene_Parte ;
-                    owl:someValuesFrom :Single_Core
-                  ] ;
-         :tiene_Ancestro :iMac_G4 ;
-         rdfs:comment "el computador iMac G5"^^xsd:string ;
-         rdfs:label "iMac_G5"^^xsd:string .
+###  http://www.computador.org/#iMac_G5
+<http://www.computador.org/#iMac_G5> rdf:type owl:NamedIndividual ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Gabinete> ;
+                                                owl:someValuesFrom <http://www.computador.org/#Torre>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                owl:someValuesFrom <http://www.computador.org/#Aire>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                owl:someValuesFrom <http://www.computador.org/#Dos_GB>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                owl:someValuesFrom <http://www.computador.org/#HDD>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                owl:someValuesFrom <http://www.computador.org/#Integrada>
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://www.computador.org/#tiene_Parte> ;
+                                                owl:someValuesFrom <http://www.computador.org/#Single_Core>
+                                              ] ;
+                                     <http://www.computador.org/#tiene_Ancestro> <http://www.computador.org/#iMac_G4> ;
+                                     rdfs:comment "el computador iMac G5"^^xsd:string ;
+                                     rdfs:label "iMac_G5"^^xsd:string .
 
 
 #################################################################
 #    Annotations
 #################################################################
 
-:Computador_Gamer rdfs:comment "Una computadora especializada para los videojuegos"^^xsd:string ;
-                  rdfs:label "Computador_Gamer"^^xsd:string .
+<http://www.computador.org/#Computador_Gamer> rdfs:label "Computador_Gamer"^^xsd:string ;
+                                              rdfs:comment "Una computadora especializada para los videojuegos"^^xsd:string .
 
 
 #################################################################
@@ -884,19 +884,19 @@
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :ATX
-                :EATX
-                :Micro-ATX
-                :Mini-ITX
+  owl:members ( <http://www.computador.org/#ATX>
+                <http://www.computador.org/#EATX>
+                <http://www.computador.org/#Micro-ATX>
+                <http://www.computador.org/#Mini-ITX>
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Dual_Core
-                :Octa_Core
-                :Quad_Core
-                :Single_Core
+  owl:members ( <http://www.computador.org/#Dual_Core>
+                <http://www.computador.org/#Octa_Core>
+                <http://www.computador.org/#Quad_Core>
+                <http://www.computador.org/#Single_Core>
               )
 ] .
 
