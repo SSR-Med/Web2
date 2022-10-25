@@ -587,7 +587,9 @@
                       owl:onProperty :tiene_Parte ;
                       owl:someValuesFrom :SSD
                     ] ;
-           :tiene_Precio 3099000 .
+           :tiene_Precio 3099000 ;
+           rdfs:comment "el computador Acer_53J2"^^xsd:string ;
+           rdfs:label "Acer_53J2"^^xsd:string .
 
 
 ###  http://www.computador.org/Acer_5542
@@ -616,7 +618,9 @@
                       owl:onProperty :tiene_Parte ;
                       owl:someValuesFrom :SSD
                     ] ;
-           :tiene_Precio 1899000 .
+           :tiene_Precio 1899000 ;
+           rdfs:comment "el computador Acer_5542"^^xsd:string ;
+           rdfs:label "Acer_5542"^^xsd:string .
 
 
 ###  http://www.computador.org/Asus_TUF_Gaming
@@ -659,7 +663,9 @@
                                   owl:someValuesFrom :SSD
                                 ] ;
                        :tiene_Coincidencia :Asus_X515EA ;
-                       :tiene_Precio 2499000 .
+                       :tiene_Precio 2499000 ;
+                       rdfs:comment "el computador Asus_Vivobook_M1402IA"^^xsd:string ;
+                       rdfs:label "Asus_Vivobook_M1402IA"^^xsd:string .
 
 
 ###  http://www.computador.org/Asus_X515EA
@@ -689,7 +695,9 @@
                         owl:someValuesFrom :SSD
                       ] ;
              :tiene_Coincidencia :Asus_Vivobook_M1402IA ;
-             :tiene_Precio 1849000 .
+             :tiene_Precio 1849000 ;
+             rdfs:comment "el computador Asus_X515EA"^^xsd:string ;
+             rdfs:label "Asus_X515EA"^^xsd:string .
 
 
 ###  http://www.computador.org/BATTLEBOX_SUPER
@@ -726,7 +734,9 @@
                             owl:onProperty :tiene_Parte ;
                             owl:someValuesFrom :SSD
                           ] ;
-                 :tiene_Precio 4299000 .
+                 :tiene_Precio 4299000 ;
+                 rdfs:comment "la torre BATTLEBOX_SUPER"^^xsd:string ;
+                 rdfs:label "BATTLEBOX_SUPER"^^xsd:string .
 
 
 ###  http://www.computador.org/ChromeBook_113180
@@ -786,7 +796,9 @@
                         owl:onProperty :tiene_Parte ;
                         owl:someValuesFrom :SSD
                       ] ;
-             :tiene_Precio 2359000 .
+             :tiene_Precio 2359000 ;
+             rdfs:comment "el computador HP_dy2505la"^^xsd:string ;
+             rdfs:label "HP_dy2505la"^^xsd:string .
 
 
 ###  http://www.computador.org/HP_ef2512la
@@ -815,7 +827,9 @@
                         owl:onProperty :tiene_Parte ;
                         owl:someValuesFrom :SSD
                       ] ;
-             :tiene_Precio 1499000 .
+             :tiene_Precio 1499000 ;
+             rdfs:comment "el computador HP_ef2512la"^^xsd:string ;
+             rdfs:label "HP_ef2512la"^^xsd:string .
 
 
 ###  http://www.computador.org/Lenovo_39GX
@@ -844,7 +858,9 @@
                         owl:onProperty :tiene_Parte ;
                         owl:someValuesFrom :SSD
                       ] ;
-             :tiene_Precio 1499000 .
+             :tiene_Precio 1499000 ;
+             rdfs:comment "el computador Lenovo_39GX"^^xsd:string ;
+             rdfs:label "Lenovo_39GX"^^xsd:string .
 
 
 ###  http://www.computador.org/Lenovo_IdeaCenter
@@ -908,7 +924,9 @@
                                  owl:onProperty :tiene_Parte ;
                                  owl:someValuesFrom :Treinta_Y_Dos_GB
                                ] ;
-                      :tiene_Precio 7599000 .
+                      :tiene_Precio 7599000 ;
+                      rdfs:comment "el computador Lenovo_IdeaPad_5_Pro"^^xsd:string ;
+                      rdfs:label "Lenovo_IdeaPad_5_Pro"^^xsd:string .
 
 
 ###  http://www.computador.org/Lenovo_Ideapad_3
@@ -1008,7 +1026,9 @@
                            owl:onProperty :tiene_Parte ;
                            owl:someValuesFrom :HDD
                          ] ;
-                :tiene_Precio 2499000 .
+                :tiene_Precio 2499000 ;
+                rdfs:comment "la torre Pro_Gamer_MOBA"^^xsd:string ;
+                rdfs:label "Pro_Gamer_MOBA"^^xsd:string .
 
 
 ###  http://www.computador.org/ROG_Zephyrus_GA402RJ
@@ -1037,7 +1057,9 @@
                                  owl:onProperty :tiene_Parte ;
                                  owl:someValuesFrom :SSD
                                ] ;
-                      :tiene_Precio 11699000 .
+                      :tiene_Precio 11699000 ;
+                      rdfs:comment "el portatil ROG_Zephyrus_GA402RJ"^^xsd:string ;
+                      rdfs:label "ROG_Zephyrus_GA402RJ"^^xsd:string .
 
 
 ###  http://www.computador.org/ROG_Zephyrus_GX650RX
@@ -1066,7 +1088,9 @@
                                  owl:onProperty :tiene_Parte ;
                                  owl:someValuesFrom :Treinta_Y_Dos_GB
                                ] ;
-                      :tiene_Precio 20999000 .
+                      :tiene_Precio 20999000 ;
+                      rdfs:comment "el portatil ROG_Zephyrus_GX650RX"^^xsd:string ;
+                      rdfs:label "ROG_Zephyrus_GX650RX"^^xsd:string .
 
 
 ###  http://www.computador.org/Titan_V3
@@ -1103,7 +1127,9 @@
                      owl:onProperty :tiene_Parte ;
                      owl:someValuesFrom :SSD
                    ] ;
-          :tiene_Precio 3699000 .
+          :tiene_Precio 3699000 ;
+          rdfs:comment "la torre Titan_V3"^^xsd:string ;
+          rdfs:label "Titan_V3"^^xsd:string .
 
 
 ###  http://www.computador.org/Victus_dlh007
