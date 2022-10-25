@@ -658,6 +658,7 @@
                                   owl:onProperty :tiene_Parte ;
                                   owl:someValuesFrom :SSD
                                 ] ;
+                       :tiene_Coincidencia :Asus_X515EA ;
                        :tiene_Precio 2499000 .
 
 
@@ -687,6 +688,7 @@
                         owl:onProperty :tiene_Parte ;
                         owl:someValuesFrom :SSD
                       ] ;
+             :tiene_Coincidencia :Asus_Vivobook_M1402IA ;
              :tiene_Precio 1849000 .
 
 
@@ -1173,12 +1175,6 @@
                :tiene_Precio 7499000 ;
                rdfs:comment "El computador dlh008"^^xsd:string ;
                rdfs:label "Victus_dlh008"^^xsd:string .
-
-[ rdf:type owl:NegativePropertyAssertion ;
-   owl:sourceIndividual :Victus_dlh008 ;
-   owl:assertionProperty :tiene_Coincidencia ;
-   owl:targetIndividual :iMac_G3
- ] .
 
 
 ###  http://www.computador.org/iMac_G3
